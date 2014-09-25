@@ -1,8 +1,7 @@
 {
-    "pl": {
-        "this": "pl/microhackaton/twitter-places-analyzer",
+    "europe": {
+        "this": "pl/warsjawa/ui",
         "dependencies": {
-            "collerator" : "pl/microhackaton/twitter-places-analyzer"
         }
     }
 }
