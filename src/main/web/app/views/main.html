@@ -3,7 +3,7 @@
 </alert>
 
 <div>
-    <h3>Welcome in the bootstrap gui microservice</h3>
+    <h3>Welcome in the quick loan microservice</h3>
 
     <p class="lead">
 
@@ -11,14 +11,27 @@
 
     <form role="form">
         <div class="form-group">
-            <label for="latitude">Latitude</label>
-            <input type="text" class="form-control" id="latitude" placeholder="Latitude" ng-model="lat">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Name" ng-model="client.name">
         </div>
         <div class="form-group">
-            <label for="longtitude">Longtitude</label>
-            <input type="text" class="form-control" id="longtitude" placeholder="Longtitude" ng-model="lon">
+            <label for="surname">Surname</label>
+            <input type="text" class="form-control" id="surname" placeholder="Surname" ng-model="client.surename">
         </div>
-        <button type="button" class="btn btn-default" ng-click="findCity()">Find</button>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="text" class="form-control" id="age" placeholder="Age" ng-model="client.age">
+        </div>
+        <div class="form-group">
+            <label for="job">Job</label>
+            <input type="text" class="form-control" id="job" placeholder="Job" ng-model="client.job">
+        </div>
+        <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="text" class="form-control" id="amount" placeholder="Amount" ng-model="client.amount">
+        </div>
+
+        <button type="button" class="btn btn-default" ng-click="applyForLoan()">Apply</button>
     </form>
 
     <hr/>
@@ -27,3 +40,4 @@
         The city you are looking for is: {{city}}
     </div>
 </div>
+        <!--name, surename, age, job, amount, successFn-->
