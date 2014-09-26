@@ -31,12 +31,15 @@ class ClientController {
             notes = "a mega api call")
     String applyForLoan(  @RequestBody @NotNull Client client) {
         log.info("name: ${client.name}, surname: ${client.surname} age: ${client.age}, job:${client.jobPosition}, loanAmount: ${client.loanAmount}")
+
+       def uid =  UUID.randomUUID()
+
         def smth =  serviceRestClient.forService("client-service").post()
                 .onUrl('/clients')
                 .body("""{
                         "firstName" : "${client.name}",
                         "lastName" : "${client.surname}",
-                        "id" : "42"
+                        "id" : "${uid}"
                     }""")
                 .withHeaders()
                 .contentTypeJson()
@@ -44,6 +47,20 @@ class ClientController {
                 .anObject()
                 .ofType(String)
 
-        return "{response:smth}"
+        def smth2 =  serviceRestClient.forService("loan-service").put()
+                .onUrl("/api/loanApplication/${uid}")
+                .body("""{
+                        "firstName" : "${client.name}",
+                        "lastName" : "${client.surname}",
+                        "job" : "${client.jobPosition}",
+                         "amount" : ${client.loanAmount}
+                    }""")
+                .withHeaders()
+                .contentTypeJson()
+                .andExecuteFor()
+                .anObject()
+                .ofType(String)
+
+        return "{id:${uid}}"
     }
 }

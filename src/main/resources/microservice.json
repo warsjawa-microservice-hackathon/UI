@@ -1,7 +1,8 @@
 {
     "europe": {
         "this": "pl/warsjawa/ui",
-        "dependencies": { "client-service": "pl/warsjawa/client-service"
+        "dependencies": { "client-service": "/europe/pl/warsjawa/client-service",
+                          "loan-service":"/europe/pl/warsjawa/loan-application-decision-maker"
 
         }
     }
