@@ -31,7 +31,7 @@ class ClientController {
             notes = "a mega api call")
     String applyForLoan(  @RequestBody @NotNull Client client) {
         log.info("name: ${client.name}, surname: ${client.surname} age: ${client.age}, job:${client.jobPosition}, loanAmount: ${client.loanAmount}")
-        serviceRestClient.forService("")
+        serviceRestClient.forService("client-service")
         return "{}"
     }
 }
