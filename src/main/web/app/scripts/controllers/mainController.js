@@ -41,8 +41,8 @@ angular.module('BootstrapApplication.controllers')
 
             $scope.applyForLoan = function() {
                 ClientService.applyForLoan($scope.client, function(id) {
-                   console.log(id)
+                   console.log(id);
                 });
             };
-            $scope.applyForLoan()
+            $scope.applyForLoan();
         }]);
