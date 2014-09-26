@@ -22,10 +22,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST
 class ClientController {
 
     @Autowired
-    def  ServiceRestClient serviceRestClient
+    ServiceRestClient serviceRestClient
 
     @RequestMapping(
-            value = '/{name}/{surname}/{age}/{jobPosition}/{loanAmount}',
+            value = '/loan',
             method = POST)
     @ApiOperation(value = "proccess loan ",
             notes = "a mega api call")
