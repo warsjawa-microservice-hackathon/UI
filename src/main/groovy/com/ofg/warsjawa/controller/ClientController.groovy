@@ -31,7 +31,19 @@ class ClientController {
             notes = "a mega api call")
     String applyForLoan(  @RequestBody @NotNull Client client) {
         log.info("name: ${client.name}, surname: ${client.surname} age: ${client.age}, job:${client.jobPosition}, loanAmount: ${client.loanAmount}")
-        serviceRestClient.forService("client-service")
-        return "{}"
+        def smth =  serviceRestClient.forService("client-service").post()
+                .onUrl('/clients')
+                .body("""{
+                        "firstName" : "${client.name}",
+                        "lastName" : "${client.surname}",
+                        "id" : "42"
+                    }""")
+                .withHeaders()
+                .contentTypeJson()
+                .andExecuteFor()
+                .anObject()
+                .ofType(String)
+
+        return "{response:smth}"
     }
 }
