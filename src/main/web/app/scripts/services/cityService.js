@@ -20,3 +20,23 @@ angular.module('BootstrapApplication.services')
         return cityService;
     }
 ]);
+
+angular.module('BootstrapApplication.services')
+    .factory('ClientService', ['$http', function($http) {
+        var clientService = {};
+        clientService.applyForLoan = function (client, successFn) {
+        console.log(client);
+            $http({
+                url: '/client/loan/',
+                dataType: 'json',
+                method: 'POST',
+                data: client
+//                    client
+            }).success(function (data) {
+                successFn(data);
+            });
+        };
+
+        return clientService;
+    }
+    ]);
