@@ -1,7 +1,7 @@
 package com.ofg.warsjawa.controller
 
 import com.ofg.infrastructure.web.resttemplate.fluent.ServiceRestClient
-import com.ofg.twitter.controller.place.extractor.CityFinder
+
 import com.wordnik.swagger.annotations.Api
 import com.wordnik.swagger.annotations.ApiOperation
 import groovy.util.logging.Slf4j
