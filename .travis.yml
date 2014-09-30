@@ -3,6 +3,12 @@ language: groovy
 jdk:
   - oraclejdk8
 
+sudo: false
+
+cache:
+  directories:
+  - ~/.m2
+
 env:
   global:
     - JAVA_OPTS=-Xmx512m
